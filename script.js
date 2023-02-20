@@ -13,9 +13,15 @@ ajaxExample();
 //functions >>>
 function ajaxExample(){
     let obj;
-    const request = new XMLHttpRequest();
-    btn.addEventListener('click',fetchData('poland'));
+    
+    fetchData('poland');
+    fetchData("spain");
+    fetchData("germany");
+
+
+
     function fetchData(country){
+        const request = new XMLHttpRequest();
         request.open("GET", `https://restcountries.com/v3.1/name/${country}`);
         request.send();
         request.addEventListener("load", function () {
@@ -25,8 +31,6 @@ function ajaxExample(){
             const html = `<img id = "Image" src = ${obj.flags.png}>`;
             imageContainer.insertAdjacentHTML('beforebegin',html)
         });
-        btn.removeEventListener('click',fetchData);
-        console.log(btn);
     }
 }
 
