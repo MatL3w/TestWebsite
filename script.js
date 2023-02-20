@@ -2,11 +2,12 @@
 
 //variables >>>
 const btn = document.getElementById("btnFetchingData");
-const image = document.getElementById('Image');
+const imageContainer = document.querySelector('.flag');
+//const image = document.getElementById('Image');
 //variables <<<
 
 //core >>>
-ajaxExample();
+//ajaxExample();
 //core <<<
 
 //functions >>>
@@ -20,9 +21,11 @@ function ajaxExample(){
             obj = JSON.parse(request.responseText);
             obj = obj[0];
             console.log(obj);
-            image.src = obj.flags.png;
+            const html = `<img id = "Image" src = ${obj.flags.png}>`;
+            imageContainer.insertAdjacentHTML('beforebegin',html)
         });
     });
 
 }
 
+//
