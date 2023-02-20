@@ -7,15 +7,16 @@ const imageContainer = document.querySelector('.flag');
 //variables <<<
 
 //core >>>
-//ajaxExample();
+ajaxExample();
 //core <<<
 
 //functions >>>
 function ajaxExample(){
     let obj;
     const request = new XMLHttpRequest();
-    btn.addEventListener('click',function(){
-        request.open("GET", "https://restcountries.com/v3.1/name/Poland");
+    btn.addEventListener('click',fetchData('poland'));
+    function fetchData(country){
+        request.open("GET", `https://restcountries.com/v3.1/name/${country}`);
         request.send();
         request.addEventListener("load", function () {
             obj = JSON.parse(request.responseText);
@@ -24,8 +25,9 @@ function ajaxExample(){
             const html = `<img id = "Image" src = ${obj.flags.png}>`;
             imageContainer.insertAdjacentHTML('beforebegin',html)
         });
-    });
-
+        btn.removeEventListener('click',fetchData);
+        console.log(btn);
+    }
 }
 
 //
