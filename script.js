@@ -13,18 +13,14 @@ ajaxExample();
 //functions >>>
 function ajaxExample(){
     let obj;
-    
-    
-    
 
-    
-
-
+    btn.addEventListener('click',()=>{
     fetchData("poland");
     fetchData("spain");
     fetchData("germany");
     fetchDataUpgrade("portugal");
-    
+    })
+
 
 
     function fetchData(country){
@@ -41,7 +37,7 @@ function ajaxExample(){
     }
     function fetchDataUpgrade(country){
         fetch(`https://restcountries.com/v3.1/name/${country}`)
-          .then((res) => res.json())
+          .then( res => res.json())
           .then((data) => {
             renderData(data[0]);
             const neighbour = data[0].borders?.[0];
@@ -53,7 +49,12 @@ function ajaxExample(){
           .then((data) => {
             console.log(data);
             renderData(data);
-        });
+        }).catch(err=>{
+            alert(err.message);
+        }).finally(()=>{
+            
+        })
+        ;
     }
     function renderData(data){
         console.log(data);
