@@ -8,7 +8,8 @@ const imageContainer = document.querySelector('.flag');
 
 //core >>>
 //ajaxExample();
-eventLoopExample();
+//eventLoopExample();
+promises();
 //core <<<
 
 //functions >>>
@@ -76,10 +77,53 @@ function eventLoopExample(){
     setTimeout(()=>console.log('0 sec'),0);
     Promise.resolve('Resolved promise 1').then(res=>console.log(res));
     Promise.resolve("Resolved promise 2").then((res) =>{
-        for(let i =0; i<1000000000;i++){};
+        for(let i =0; i<10000000000;i++){};
         console.log(res);
     });
     console.log("test end");
 }
- 
+function promises(){
+    const task = new Promise(function(resolve, reject){
+      //for (let i = 0; i < 10000000000; i++) {}
+      if (Math.random() >= 0.5) {
+        resolve("Win");
+      } else {
+        reject(new Error("Lose"));
+      }
+    });
+
+    task.then(res=>console.log(res))
+    .catch(err=>console.log(err));
+    console.log('lol');
+
+    const wait = function(seconds){
+        return new Promise(function(resolve){
+            console.log('start');
+            setTimeout(resolve,seconds *1000);
+        });
+    }
+    wait(4).then(()=>{
+        console.log('i waited 2 sec');
+        return wait(5);
+    })
+    .then(()=>{
+        console.log('i waited 1 sec');
+    }
+    );
+
+
+    Promise.resolve('res').then(x=>console.log(x));
+    Promise.reject("rej").catch(x => console.log(x));
+
+    const navi = function(){
+        return new Promise(function(res,rej){
+        navigator.geolocation.getCurrentPosition(res,rej);
+        })
+    }
+    navi().then(x=>{
+        console.log(x)
+        return navi()})
+    .then(x=>console.log(x));
+
+}
 //
