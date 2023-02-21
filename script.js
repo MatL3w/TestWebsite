@@ -7,7 +7,8 @@ const imageContainer = document.querySelector('.flag');
 //variables <<<
 
 //core >>>
-ajaxExample();
+//ajaxExample();
+eventLoopExample();
 //core <<<
 
 //functions >>>
@@ -18,7 +19,7 @@ function ajaxExample(){
     fetchData("poland");
     fetchData("spain");
     fetchData("germany");
-    fetchDataUpgrade("portugal");
+    fetchDataUpgrade("australia");
     })
 
 
@@ -37,11 +38,17 @@ function ajaxExample(){
     }
     function fetchDataUpgrade(country){
         fetch(`https://restcountries.com/v3.1/name/${country}`)
-          .then( res => res.json())
+          .then( res =>{
+            console.log(res);
+            if(!res.ok){
+                throw new Error(`Country not found ${res.status}`);
+            }
+           return res.json();
+            })
           .then((data) => {
             renderData(data[0]);
             const neighbour = data[0].borders?.[0];
-            if (!neighbour) return;
+            if (!neighbour) throw new Error('no neighbour');
 
             return fetch(`https://restcountries.com/v2/alpha/${neighbour}`);
           })
@@ -49,10 +56,12 @@ function ajaxExample(){
           .then((data) => {
             console.log(data);
             renderData(data);
-        }).catch(err=>{
+            })
+          .catch(err=>{
             alert(err.message);
-        }).finally(()=>{
-            
+           })
+          .finally(()=>{
+
         })
         ;
     }
@@ -62,5 +71,15 @@ function ajaxExample(){
         imageContainer.insertAdjacentHTML("beforebegin", html);
     }
 }
-
+function eventLoopExample(){
+    console.log('test start');
+    setTimeout(()=>console.log('0 sec'),0);
+    Promise.resolve('Resolved promise 1').then(res=>console.log(res));
+    Promise.resolve("Resolved promise 2").then((res) =>{
+        for(let i =0; i<1000000000;i++){};
+        console.log(res);
+    });
+    console.log("test end");
+}
+ 
 //
