@@ -15,16 +15,16 @@ function ajaxExample(){
     let obj;
     
     
-    const request = fetch("https://restcountries.com/v3.1/name/poland");
-    console.log(request);
     
+
+    
+
+
     fetchData("poland");
     fetchData("spain");
     fetchData("germany");
+    fetchDataUpgrade("portugal");
     
-    setTimeout(()=>{
-        console.log(request);
-    },1000);
 
 
     function fetchData(country){
@@ -38,6 +38,27 @@ function ajaxExample(){
             const html = `<img id = "Image" src = ${obj.flags.png}>`;
             imageContainer.insertAdjacentHTML('beforebegin',html)
         });
+    }
+    function fetchDataUpgrade(country){
+        fetch(`https://restcountries.com/v3.1/name/${country}`)
+          .then((res) => res.json())
+          .then((data) => {
+            renderData(data[0]);
+            const neighbour = data[0].borders?.[0];
+            if (!neighbour) return;
+
+            return fetch(`https://restcountries.com/v2/alpha/${neighbour}`);
+          })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            renderData(data);
+        });
+    }
+    function renderData(data){
+        console.log(data);
+        const html = `<img id = "Image" src = ${data.flags.png}>`;
+        imageContainer.insertAdjacentHTML("beforebegin", html);
     }
 }
 
