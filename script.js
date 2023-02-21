@@ -14,10 +14,17 @@ ajaxExample();
 function ajaxExample(){
     let obj;
     
-    fetchData('poland');
+    
+    const request = fetch("https://restcountries.com/v3.1/name/poland");
+    console.log(request);
+    
+    fetchData("poland");
     fetchData("spain");
     fetchData("germany");
-
+    
+    setTimeout(()=>{
+        console.log(request);
+    },1000);
 
 
     function fetchData(country){
