@@ -130,10 +130,14 @@ function promises(){
 }
 function asyncAwait(){
 
-(async function(){
+(async function(country  ){
   try {
     console.log("1");
-    const lol = await whereIam("poland");
+    const lol = await Promise.all([
+      whereIam('poland'),
+      whereIam('germany'),
+      whereIam('italy')
+    ]);
     console.log(lol);
     console.log("2");
   } catch (err) {
@@ -143,7 +147,6 @@ function asyncAwait(){
 
  async function whereIam(country){
   try{
-      await wait(5);
       const res = await fetch(`https://restcountries.com/v3.1/name/${country}`)
       //throw new Error('blad');
       console.log(res);
