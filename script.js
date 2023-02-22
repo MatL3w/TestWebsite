@@ -9,7 +9,8 @@ const imageContainer = document.querySelector('.flag');
 //core >>>
 //ajaxExample();
 //eventLoopExample();
-promises();
+//promises();
+asyncAwait();
 //core <<<
 
 //functions >>>
@@ -124,6 +125,20 @@ function promises(){
         console.log(x)
         return navi()})
     .then(x=>console.log(x));
+    console.log('end');
+
+}
+function asyncAwait(){
+  console.log('1');
+  whereIam("poland");
+  console.log("2");
+
+ async function whereIam(country){
+    const res = await fetch(`https://restcountries.com/v3.1/name/${country}`);
+    console.log(res);
+    const data = await res.json();
+    console.log(data);
+  }
 
 }
 //
