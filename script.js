@@ -130,7 +130,12 @@ function promises(){
 }
 function asyncAwait(){
 
-(async function(country  ){
+  whereIam('poland').then(x=>console.log(x));
+  whereIam("germany").then((x) => console.log(x));
+  whereIam("italy").then((x) => console.log(x));
+
+
+(async function(){
   try {
     console.log("1");
     const lol = await Promise.all([
@@ -138,7 +143,7 @@ function asyncAwait(){
       whereIam('germany'),
       whereIam('italy')
     ]);
-    console.log(lol);
+    console.log(lol.map(d=>d[0].capital[0]));
     console.log("2");
   } catch (err) {
     console.error(err);
