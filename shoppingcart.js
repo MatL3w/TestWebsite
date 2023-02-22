@@ -7,3 +7,4 @@ export function addToCart(x){
     cart.push(x);
     return cart;
 }
+ 
