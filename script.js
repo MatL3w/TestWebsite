@@ -1,7 +1,7 @@
 'use strict';
 
 //modules>>>
-import { addToCart } from "./shoppingcart";
+import * as shoppingCart from "./shoppingcart.js";
 
 //variables >>>
 const btn = document.getElementById("btnFetchingData");
@@ -224,6 +224,7 @@ function promiseCombinators(){
   }
 }
 function importedModulesHandler(){
-  console.log(addToCart(1));
+  console.log(shoppingCart.addToCart(21));
+  console.log(shoppingCart.cart);
 }
 //
