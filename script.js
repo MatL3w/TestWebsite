@@ -10,7 +10,8 @@ const imageContainer = document.querySelector('.flag');
 //ajaxExample();
 //eventLoopExample();
 //promises();
-asyncAwait();
+//asyncAwait();
+promiseCombinators();
 //core <<<
 
 //functions >>>
@@ -169,5 +170,53 @@ function asyncAwait(){
       setTimeout(resolve, seconds * 1000);
     });
   };
+}
+function promiseCombinators(){
+  (async function () {
+    const res = await Promise.race([
+      whereIam("poland"),
+      whereIam("germany"),
+      whereIam("italy"),
+      wait(1000)
+    ]);
+    console.log(res);
+    const res2 = await Promise.allSettled([
+      whereIam("poland"),
+      whereIam("germany"),
+      whereIam("italy"),
+      wait(3000),
+    ]);
+    console.log(res2);
+    const res3 = await Promise.any([
+      whereIam("poland"),
+      whereIam("germany"),
+      whereIam("italy"),
+      wait(3000),
+    ]);
+    console.log(res3);    
+    
+  })();
+
+  async function whereIam(country) {
+    try {
+      const res = await fetch(`https://restcountries.com/v3.1/name/${country}`);
+      //throw new Error('blad');
+      //console.log(res);
+      const data = await res.json();
+      //console.log(data);
+      return data;
+    } catch (err) {
+      console.error(err);
+      throw err;
+    }
+  }
+  function wait(miliseconds) {
+    return new Promise(function (resolve) {
+      console.log("start");
+      setTimeout(()=>{
+        resolve('out of time');
+      }, miliseconds );
+    });
+  }
 }
 //
