@@ -129,16 +129,37 @@ function promises(){
 
 }
 function asyncAwait(){
-  console.log('1');
-  whereIam("poland");
-  console.log("2");
+
+(async function(){
+  try {
+    console.log("1");
+    const lol = await whereIam("poland");
+    console.log(lol);
+    console.log("2");
+  } catch (err) {
+    console.error(err);
+  }
+})();
 
  async function whereIam(country){
-    const res = await fetch(`https://restcountries.com/v3.1/name/${country}`);
-    console.log(res);
-    const data = await res.json();
-    console.log(data);
+  try{
+      await wait(5);
+      const res = await fetch(`https://restcountries.com/v3.1/name/${country}`)
+      //throw new Error('blad');
+      console.log(res);
+      const data = await res.json();
+      console.log(data);
+      return data;
+    }catch(err){
+      console.error(err);
+      throw err;
+    }
   }
-
+  function wait(seconds) {
+    return new Promise(function (resolve) {
+      console.log("start");
+      setTimeout(resolve, seconds * 1000);
+    });
+  };
 }
 //
