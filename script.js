@@ -1,5 +1,8 @@
 'use strict';
 
+//modules>>>
+import { addToCart } from "./shoppingcart";
+
 //variables >>>
 const btn = document.getElementById("btnFetchingData");
 const imageContainer = document.querySelector('.flag');
@@ -11,7 +14,8 @@ const imageContainer = document.querySelector('.flag');
 //eventLoopExample();
 //promises();
 //asyncAwait();
-promiseCombinators();
+//promiseCombinators();
+importedModulesHandler();
 //core <<<
 
 //functions >>>
@@ -218,5 +222,8 @@ function promiseCombinators(){
       }, miliseconds );
     });
   }
+}
+function importedModulesHandler(){
+  console.log(addToCart(1));
 }
 //
