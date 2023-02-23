@@ -1,8 +1,9 @@
 'use strict';
 
 //modules>>>
-import * as shoppingCart from "./shoppingcart.js";
-import { modulePattern } from "/modulePattern.js";
+//import * as shoppingCart from "./shoppingcart.js";
+//import { modulePattern } from "/modulePattern.js";
+import clonDeep from './node_modules/lodash-es/cloneDeep.js'
 
 //variables >>>
 const btn = document.getElementById("btnFetchingData");
@@ -16,7 +17,13 @@ const imageContainer = document.querySelector('.flag');
 //promises();
 //asyncAwait();
 //promiseCombinators();
-importedModulesHandler();
+//importedModulesHandler();
+lodashExamples();
+
+if(module.hot){
+  module.hot.accept();
+}
+
 //core <<<
 
 //functions >>>
@@ -230,5 +237,18 @@ function importedModulesHandler(){
   console.log(shoppingCart.cart);
 
   console.log(modulePattern.giveMeX());
+}
+function lodashExamples(){
+  const object={
+    lol:1,
+    lol2:2,
+    z:{
+      x:3,
+    }
+  }
+
+  const deepCopy = clonDeep(object);
+  console.log(deepCopy);
+
 }
 //

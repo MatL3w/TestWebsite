@@ -10,10 +10,17 @@
     "type": "git",
     "url": "git+https://github.com/MatL3w/TestWebsite.git"
   },
-  "author": "",
+  "author": "Lecik",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MatL3w/TestWebsite/issues"
   },
-  "homepage": "https://github.com/MatL3w/TestWebsite#readme"
+  "homepage": "https://github.com/MatL3w/TestWebsite#readme",
+  "dependencies": {
+    "leaflet": "^1.9.3",
+    "lodash-es": "^4.17.21"
+  },
+  "devDependencies": {
+    "parcel": "^2.8.3"
+  }
 }
