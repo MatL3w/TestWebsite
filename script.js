@@ -2,6 +2,7 @@
 
 //modules>>>
 import * as shoppingCart from "./shoppingcart.js";
+import { modulePattern } from "/modulePattern.js";
 
 //variables >>>
 const btn = document.getElementById("btnFetchingData");
@@ -227,5 +228,7 @@ function importedModulesHandler(){
   console.log('lol');
   console.log(shoppingCart.addToCart(21));
   console.log(shoppingCart.cart);
+
+  console.log(modulePattern.giveMeX());
 }
 //

@@ -2,7 +2,7 @@
 console.log('exporting modules start');
 const shippingCost =10;
 export const cart = [];
-await whereIam('poland');
+await whereIam('poland').then(x=>console.log(x));
 console.log("exporting modules stop");
 
 export function addToCart(x){
