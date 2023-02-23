@@ -224,6 +224,7 @@ function promiseCombinators(){
   }
 }
 function importedModulesHandler(){
+  console.log('lol');
   console.log(shoppingCart.addToCart(21));
   console.log(shoppingCart.cart);
 }
