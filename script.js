@@ -4,11 +4,13 @@
 //import * as shoppingCart from "./shoppingcart.js";
 //import { modulePattern } from "/modulePattern.js";
 import clonDeep from './node_modules/lodash-es/cloneDeep.js'
-
+import './node_modules/core-js';
+import '/node_modules/regenerator-runtime'
 //variables >>>
 const btn = document.getElementById("btnFetchingData");
 const imageContainer = document.querySelector('.flag');
 //const image = document.getElementById('Image');
+const table =[];
 //variables <<<
 
 //core >>>
@@ -19,10 +21,6 @@ const imageContainer = document.querySelector('.flag');
 //promiseCombinators();
 //importedModulesHandler();
 lodashExamples();
-
-if(module.hot){
-  module.hot.accept();
-}
 
 //core <<<
 
@@ -246,9 +244,12 @@ function lodashExamples(){
       x:3,
     }
   }
-
+  table.push('x');
   const deepCopy = clonDeep(object);
   console.log(deepCopy);
+  console.log(table);
+  console.log(x=>x);
+  Promise.resolve('lol').then(x=>console.log(x));
 
 }
 //
