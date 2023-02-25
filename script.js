@@ -4,8 +4,8 @@
 //import * as shoppingCart from "./shoppingcart.js";
 //import { modulePattern } from "/modulePattern.js";
 import clonDeep from './node_modules/lodash-es/cloneDeep.js';
-import './node_modules/core-js';
-import '/node_modules/regenerator-runtime';
+//import './node_modules/core-js';
+//import '/node_modules/regenerator-runtime';
 //variables >>>
 const btn = document.getElementById("btnFetchingData");
 const imageContainer = document.querySelector('.flag');
@@ -20,8 +20,8 @@ const table =[];
 //asyncAwait();
 //promiseCombinators();
 //importedModulesHandler();
-lodashExamples();
-
+//odashExamples();
+objectFreeze();
 //core <<<
 
 //functions >>>
@@ -251,5 +251,21 @@ function lodashExamples(){
   //console.log(x=>x);
   Promise.resolve('lol').then(x=>console.log(x));
   console.log(object?.['lol2']);
+}
+function objectFreeze(){
+  const person = Object.freeze({
+    name:'mateusz',
+    age:28
+  });
+  
+ try{
+    person.lol='lol';
+  console.log(person);
+ }
+  catch(err){
+    console.log(err.message);
+}
+
+
 }
 //
