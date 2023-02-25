@@ -257,7 +257,10 @@ function objectFreeze(){
     name:'mateusz',
     age:28
   });
-  
+  for (const x in person ){
+    console.log(x);
+  }
+  console.log(person);
  try{
     person.lol='lol';
   console.log(person);
