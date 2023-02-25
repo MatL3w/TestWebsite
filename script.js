@@ -21,7 +21,8 @@ const table =[];
 //promiseCombinators();
 //importedModulesHandler();
 //odashExamples();
-objectFreeze();
+//objectFreeze();
+objectAssign();
 //core <<<
 
 //functions >>>
@@ -270,5 +271,10 @@ function objectFreeze(){
 }
 
 
+}
+function objectAssign(){
+ const obj = {a:1,b:2};
+ const obj2 = Object.assign({},obj,{c:3},{d:4});
+ console.log(obj2);
 }
 //
