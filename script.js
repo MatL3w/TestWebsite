@@ -6,6 +6,8 @@
 import clonDeep from './node_modules/lodash-es/cloneDeep.js';
 //import './node_modules/core-js';
 //import '/node_modules/regenerator-runtime';
+//modules<<<
+
 //variables >>>
 const btn = document.getElementById("btnFetchingData");
 const imageContainer = document.querySelector('.flag');
