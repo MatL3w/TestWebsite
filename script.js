@@ -4,6 +4,7 @@
 //import * as shoppingCart from "./shoppingcart.js";
 //import { modulePattern } from "/modulePattern.js";
 import clonDeep from './node_modules/lodash-es/cloneDeep.js';
+import * as config from './config.js';
 //import './node_modules/core-js';
 //import '/node_modules/regenerator-runtime';
 //modules<<<
@@ -24,7 +25,8 @@ const table =[];
 //importedModulesHandler();
 //odashExamples();
 //objectFreeze();
-objectAssign();
+//objectAssign();
+configFile();
 //core <<<
 
 //functions >>>
@@ -278,5 +280,8 @@ function objectAssign(){
  const obj = {a:1,b:2};
  const obj2 = Object.assign({},obj,{c:3},{d:4});
  console.log(obj2);
+}
+function configFile(){
+  console.log(Object.entries(config));
 }
 //
