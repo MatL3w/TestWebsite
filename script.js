@@ -296,6 +296,8 @@ function webWorker(){
   worker2.onmessage = function (event) {
     console.log(`message form web worker: ${event.data}`);
   };
+  console.log("serviceWorker" in navigator);
+  //console.log(self);
 }
 
 //
