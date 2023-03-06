@@ -286,11 +286,16 @@ function configFile(){
   console.log(Object.entries(config));
 }
 function webWorker(){
-  const worker = new Worker('worker.js');
-  worker.postMessage('Hello there');
-  worker.onmessage=function(event){
+  const worker1 = new Worker('worker.js');
+  worker1.postMessage('Hello there worker1');
+  worker1.onmessage=function(event){
     console.log(`message form web worker: ${event.data}`);
   }
+  const worker2 = new Worker("worker.js");
+  worker2.postMessage("Hello there worker2");
+  worker2.onmessage = function (event) {
+    console.log(`message form web worker: ${event.data}`);
+  };
 }
 
 //
