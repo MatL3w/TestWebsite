@@ -368,5 +368,13 @@ function printExample(){
 function closeWindow(){
   window.close();
 }
+/**
+ * Example of using teh jsDoc
+ * @param {Object} obj1 we will log in console
+ * @param {Object} obj2 
+ */
+function jsDocComment(obj1,obj2){
+  console.log(obj1);
+}
 
 //
