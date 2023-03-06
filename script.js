@@ -30,7 +30,8 @@ const table =[];
 //webWorker();
 //localStorageExample();
 //sessionStorageExample();\
-windowOpenClose();
+//windowOpenClose();
+
 //core <<<
 
 //functions >>>
