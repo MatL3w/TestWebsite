@@ -34,6 +34,7 @@ const table =[];
 //windowConfirmExample();
 //windowFocusExample();
 //printExample();
+closeWindow();
 //core <<<
 
 //functions >>>
@@ -362,6 +363,9 @@ function windowFocusExample(){
 }
 function printExample(){
     print();
+}
+function closeWindow(){
+  window.close();
 }
 
 //
