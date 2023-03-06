@@ -320,10 +320,36 @@ function sessionStorageExample(){
    console.log(sessionStorage.length);
 }
 function windowOpenClose(){
-  const newWindow =window.open("https://www.mozilla.org/", "mozillaTab");
-  setTimeout(()=>{
-    newWindow.close();
-  },2000);
+  (async function () {
+    try{
+      const newWindow = window.open("https://www.mozilla.org/", "mozillaTab");
+      await new Promise((resolve=>{
+      setTimeout(()=>{
+        newWindow.close();
+        resolve();
+      },2000);
+      }));
+      console.log('now popup');
+      const newPopup = window.open(
+        "https://www.mozilla.org/",
+        "mozillaWindow",
+        "popup"
+      );
+      await new Promise((resolve) => {
+        setTimeout(() => {
+          newPopup.close();
+          resolve();
+        }, 2000);
+      });
+      window.open("index.html", "_blank", "width=500,height=500").close();
+    }
+    catch(err){
+      console.log(err);
+    }
+
+
+
+  })();
 }
 
 //
