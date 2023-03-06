@@ -29,7 +29,8 @@ const table =[];
 //configFile();
 //webWorker();
 //localStorageExample();
-sessionStorageExample();
+//sessionStorageExample();\
+windowOpenClose();
 //core <<<
 
 //functions >>>
@@ -316,7 +317,13 @@ function sessionStorageExample(){
    console.log(now);
    sessionStorage.setItem(now,now);
    console.log(sessionStorage);
+   console.log(sessionStorage.length);
 }
-
+function windowOpenClose(){
+  const newWindow =window.open("https://www.mozilla.org/", "mozillaTab");
+  setTimeout(()=>{
+    newWindow.close();
+  },2000);
+}
 
 //
