@@ -34,7 +34,8 @@ const table =[];
 //windowConfirmExample();
 //windowFocusExample();
 //printExample();
-closeWindow();
+//closeWindow();
+
 //core <<<
 
 //functions >>>
