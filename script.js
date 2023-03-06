@@ -27,7 +27,9 @@ const table =[];
 //objectFreeze();
 //objectAssign();
 //configFile();
-webWorker();
+//webWorker();
+//localStorageExample();
+sessionStorageExample();
 //core <<<
 
 //functions >>>
@@ -299,5 +301,22 @@ function webWorker(){
   console.log("serviceWorker" in navigator);
   //console.log(self);
 }
+function localStorageExample(){
+  const now = Date.now();
+  console.log(now);
+  localStorage.setItem(+now,now);
+  console.log(`local storage length: ${localStorage.length}`);
+  console.log(`local storage: ${localStorage}`);
+  // console.log('clearing local storage');
+  // localStorage.clear();
+  console.log(localStorage.length);
+}
+function sessionStorageExample(){
+   const now = Date.now();
+   console.log(now);
+   sessionStorage.setItem(now,now);
+   console.log(sessionStorage);
+}
+
 
 //
