@@ -346,9 +346,6 @@ function windowOpenClose(){
     catch(err){
       console.log(err);
     }
-
-
-
   })();
 }
 
