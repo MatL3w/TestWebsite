@@ -369,12 +369,14 @@ function closeWindow(){
   window.close();
 }
 /**
- * Example of using teh jsDoc
+ * Example of using the jsDoc
  * @param {Object} obj1 we will log in console
  * @param {Object} obj2 
+ * @returns {number} is always is 1
  */
 function jsDocComment(obj1,obj2){
   console.log(obj1);
+  return 1;
 }
 
 //
