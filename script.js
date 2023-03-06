@@ -1,22 +1,22 @@
 'use strict';
 
-//modules>>>
+//modules<<<
 //import * as shoppingCart from "./shoppingcart.js";
 //import { modulePattern } from "/modulePattern.js";
 import clonDeep from './node_modules/lodash-es/cloneDeep.js';
 import * as config from './config.js';
 //import './node_modules/core-js';
 //import '/node_modules/regenerator-runtime';
-//modules<<<
 
-//variables >>>
+
+//variables <<<
 const btn = document.getElementById("btnFetchingData");
 const imageContainer = document.querySelector('.flag');
 //const image = document.getElementById('Image');
 const table =[];
-//variables <<<
 
-//core >>>
+
+//core <<<
 //ajaxExample();
 //eventLoopExample();
 //promises();
@@ -36,9 +36,9 @@ const table =[];
 //printExample();
 //closeWindow();
 
-//core <<<
 
-//functions >>>
+
+//functions <<<
 function ajaxExample(){
     let obj;
 
