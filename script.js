@@ -26,7 +26,8 @@ const table =[];
 //odashExamples();
 //objectFreeze();
 //objectAssign();
-configFile();
+//configFile();
+webWorker();
 //core <<<
 
 //functions >>>
@@ -284,4 +285,12 @@ function objectAssign(){
 function configFile(){
   console.log(Object.entries(config));
 }
+function webWorker(){
+  const worker = new Worker('worker.js');
+  worker.postMessage('Hello there');
+  worker.onmessage=function(event){
+    console.log(`message form web worker: ${event.data}`);
+  }
+}
+
 //
