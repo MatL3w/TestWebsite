@@ -31,7 +31,9 @@ const table =[];
 //localStorageExample();
 //sessionStorageExample();\
 //windowOpenClose();
-
+//windowConfirmExample();
+//windowFocusExample();
+//printExample();
 //core <<<
 
 //functions >>>
@@ -348,6 +350,18 @@ function windowOpenClose(){
       console.log(err);
     }
   })();
+}
+function windowConfirmExample(){
+  console.log(confirm('lol'));
+}
+function windowFocusExample(){
+  setTimeout(()=>{
+    focus();
+    console.log('focus');
+  },3000)
+}
+function printExample(){
+    print();
 }
 
 //
