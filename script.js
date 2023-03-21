@@ -11,9 +11,11 @@ import * as config from './config.js';
 
 //variables <<<
 const btn = document.getElementById("btnFetchingData");
+const btn2 = document.getElementById("btnFetchingData2");
 const imageContainer = document.querySelector('.flag');
 //const image = document.getElementById('Image');
 const table =[];
+
 
 
 //core <<<
@@ -35,10 +37,11 @@ const table =[];
 //windowFocusExample();
 //printExample();
 //closeWindow();
-
+showHiddenInput();
 
 
 //functions <<<
+
 function ajaxExample(){
     let obj;
 
@@ -378,5 +381,29 @@ function jsDocComment(obj1,obj2){
   console.log(obj1);
   return 1;
 }
+function showHiddenInput(){
+    btn2.addEventListener("click",()=>{
+      const prodiID = btn2.parentNode.querySelector("[name=prodID]").value;
+      const crsfToken = btn2.parentNode.querySelector("[name=_csrfToken]").value;
+      console.log(prodiID);
+      console.log(crsfToken);
+      // fetch(`/product/${prodiID}`,{
+      //   method: 'DELETE',
+      //   headers:{
+      //     'csrf-token': crsfToken
+      //   }
+      // })
+      fetch(`https://restcountries.com/v3.1/name/poland`)
+      .then(result=>{
+        console.log(result);
+        return result.json()
+      })
+      .then(data=>{
+        console.log(data);
+      })
+
+    });
+}
+
 
 //
